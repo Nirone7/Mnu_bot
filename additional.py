@@ -1,3 +1,16 @@
+"""
+
+동적으로 처리해야하는 기능들을 함수로 정의하여 기능 실행
+ex) 식단표 > 오늘 아침의 식단을 조회하여 보여줘야함 등..
+
+작  성 : 정보보호학과 15학번 임재연
+
+"""
+
+
+
+
+
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "algorithm_LAB.settings")
 import django
@@ -11,6 +24,7 @@ import urllib.parse as urp
 import urllib.request as urllib2
 from os.path import basename
 
+# 이미지를 저장하는 부분 , message 의 type이 text가 아니면 실행된다.
 def save_media(userRequest):  #이미지 저장부분(매개변수는 전달된 요청값(콘텐츠,타입,메시지)데이터)
 	user = userRequest['user_key']
 	imgSrc = userRequest['content']
@@ -19,8 +33,14 @@ def save_media(userRequest):  #이미지 저장부분(매개변수는 전달된 
 	with open("/home/nirone7/JY/media/{}_".format(user)+imgFileName, 'wb') as imgFile:
 		imgFile.write(imgContent)
 
+# message 값으로 'funcuion_call(get_food,"기존관 아침")' 과 같이 전달받는다
+# function_call(함수, 매개변수) 와 같이 사용하며
+# 다양한 취약점이 있지만 카카오톡을 통해 접근하는 경우에는 데이터베이스에 접근이 
+# 불가능 하므로 eval문자열만 막아두었다.
 def function_call(message):
 	foo,var = re.findall("\((.*?)\)",message)[0].split(",") # function_call(foo,var) => foo = foo, var = var
+	if "eval" in foo:
+		return "No hack..."
 	try:
 		data = eval("{}({})".format(foo,var))
 		return data
@@ -32,7 +52,8 @@ def function_call(message):
 
 
 
-
+# 요청에 따라 데이터베이스에서 식단정보를 가져와서
+#조건에 맞게 조합 후 반환해준다.
 ## mokpo dormi food ##
 def get_food(message):
 	# message == "기존관/BTL 아침/점심/저녁" 형태로 받음
