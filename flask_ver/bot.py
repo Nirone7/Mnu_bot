@@ -20,6 +20,16 @@ dormiMenu = ["기존관 식단","BTL 식단"]
 BTLMenu = ["BTL 아침","BTL 점심","BTL 저녁","BTL 오늘","BTL 내일"]
 foodMenu = ["기존관 아침","기존관 점심","기존관 저녁","기존관 오늘","기존관 내일"]
 
+"""
+# example for fu.send_text()
+
+def send_text(text,menu):
+	data = {'message':{},keyboard:{}}
+	data['message']['text'] = text
+	data['keyboard']['type']='buttons'
+	data['keyboard']['buttons']=menu
+	return json.dumps(data,ensure_ascii=False)
+"""
 
 @app.route("//message", methods=['GET', 'POST'])
 @app.route("/message", methods=['GET', 'POST'])
