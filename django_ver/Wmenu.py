@@ -1,26 +1,3 @@
-"""
-
-
-기존관 및 BTL 식단표를 가져오는 부분 (django Ver)
-
-작 성 : 정보보호학과 15학번 김민우
-
-수 정 : 정보보호학과 15학번 임재연
-
-"""
-
-"""
-
-crontab을 통해 주기적으로 실행시켜줘야 함
-현재 서버 옵션
-5,55 23,0 * * *  python위치 파일위치/Wmenu.py
--> 매일 0시 5분 / 0시 55분 / 23시 5분 /  23시 55분
--> 하루에 4번 데이터를 파싱하여 데이터베이스에 저장시킴
-
-"""
-
-
-
 import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "algorithm_LAB.settings")
 import django
@@ -88,5 +65,6 @@ def main(m):
 
 
 if __name__=="__main__":
-        main("")
-        main("_btl")
+  Food.objects.all().delete()
+  main("")
+  main("_btl")

@@ -1,14 +1,6 @@
-"""
-models.py
-데이터베이스에 관련된 부분들을 정의하는 부분이다.
-작  성 : 정보보호학과 15학번 임재연
-
-"""
-
 from django.db import models
 import json
 
-# Create your models here.
 
 class Food(models.Model):
 	menu = models.TextField()
