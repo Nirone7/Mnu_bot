@@ -2,9 +2,9 @@
 #### - 목포대학교 정보봇에서 사용중인 코드
  현재 사용중인 버전은 flask 버전 / django 버전은 개발중
 ### 현재 구현된기능(django)
-* 기숙사 (기존관 / BTL) 아침 점심 저녁 오늘 내일 식단표 제공 : Wmenu.py / addition.py - get food
+* 기숙사 (기존관 / BTL) 아침 점심 저녁 오늘 내일 식단표 제공 : Wmenu.py / addition.py - get_food
 * 인트라넷 바로가기 제공(기본)
-* 200번 버스 시간 조회 기능 : additional.py - bus_info
+* 200번 버스 시간 조회 기능 : additional.py - find_bus
 
 ### 추가 할 예정인 기능들 (기간 미정)
 *   학식
