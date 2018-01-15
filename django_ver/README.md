@@ -6,5 +6,7 @@
 
 Postgresql을 사용하며, gunicorn, django, apache2, ubuntu 환경에서 구동중이다.
 
-관련 글 : https://blog.imreplay.xyz/카카오톡-자동응답-카카오톡-자동응답-봇-만들기/ 
-API 참고 자료 : https://github.com/plusfriend/auto_reply
+#### 관련 글 : https://blog.imreplay.xyz/카카오톡-자동응답-카카오톡-자동응답-봇-만들기/ 
+
+
+#### API 참고 자료 : https://github.com/plusfriend/auto_reply
